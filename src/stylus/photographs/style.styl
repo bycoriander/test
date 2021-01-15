@@ -1,0 +1,107 @@
+
+ @import "../common/define.styl";
+ @import "../common/easing.styl";
+ @import "../common/reset.styl";
+ @import "../common/layout.styl";
+
+
+/* -------------------------------------------------
+    common
+-------------------------------------------------- */
+
+.wrap {
+    max-width: 700px;
+    width: 70%;
+    margin: 0 auto;
+}
+
+.inner {
+    width: 90%;
+    margin: 0 auto;
+}
+
+/* -------------------------------------------------
+    photographs
+-------------------------------------------------- */
+
+.photographs {
+    padding: 270px 0px 200px;
+}
+
+.photographs-images {
+    li {
+        + li {
+            margin-top: 10px;
+        }
+        img {
+            width: 100%;
+        }
+    }
+}
+
+.photographs-title {
+    display: none;
+}
+
+/* -------------------------------------------------
+    pagetop
+-------------------------------------------------- */
+.pagetop {
+    cursor: pointer;
+    transition: 0.5s ease-in-out;
+    opacity: 0;
+    &.active {
+        position: fixed;
+        display: block;
+        bottom: 50px;
+        right: 5%;
+        opacity: 1;
+    }
+    img {
+        width: 80px;
+        &:hover {
+            opacity: 0;
+        }
+    }
+    a {
+        display: inline-block;
+        &:hover {
+            background-image: url("../img/pagetop_hover.png");
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+    }
+
+}
+
+@media screen and (max-width: $SW) {  
+
+    .header-nav ul li:nth-child(1)::before {
+        display: none;
+    }
+    .photographs {
+        padding: 30vw 0vw 22vw;
+    }
+    .photographs-title {
+        display: block;
+        margin: 3vw 0vw 10vw;
+        font-size: 4vw;
+        text-align: center;
+    }
+    .pagetop {
+        img {
+            width: 13vw;
+            &:hover {
+                opacity: 1;
+            }
+        }
+        &.active {
+            bottom: 30px;
+            right: 1%;
+        }
+        a:hover {
+            background-image: none;
+        }
+    }
+}

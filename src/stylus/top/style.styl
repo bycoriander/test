@@ -1,0 +1,35 @@
+
+ @import "../common/define.styl";
+ @import "../common/easing.styl";
+ @import "../common/reset.styl";
+ @import "../common/layout.styl";
+
+.main {
+    height: calc(100vh - 220px); 
+    margin-top: 220px;
+    background-image: url("../img/main.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+@media screen and (max-width: $SW) {  
+
+    .main {
+        height: calc(100vh - 16vw);
+        margin-top: 16vw;
+        &.active {
+            height: 100vh;
+            margin-top: 0;
+        }
+    }
+
+    .header {
+        .header-area {
+            .header-nav {
+                background-color: rgba(211,104,35,0.86);
+            }
+        }
+    }
+
+}
