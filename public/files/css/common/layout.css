@@ -1,0 +1,211 @@
+@charset "utf-8";
+@import 'reset.css';
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP&display=swap');
+
+body {
+    font-family: "Noto Sans CJK JP";
+    color: #525252;
+    background-color: #ffffff;
+    letter-spacing: 2px;
+
+}
+
+/*--------------------------------------
+	header
+/*-------------------------------------*/
+
+.header {
+    position: fixed;
+    width: 100%;
+    background-color: #ffffff;
+    top: 0;
+    left: 0;
+}
+
+.header-area {
+    display: flex;
+    width: 90%;
+    margin: 0 auto;
+    padding: 50px 0px 26px;
+    justify-content: space-between;
+}
+
+.header-title {
+    font-size: 30px;
+}
+
+    .header-title a {
+        text-decoration: none;
+        color: #525252;
+    }
+
+@media screen and (min-width: 781px) {
+
+    .header-title a:hover {
+        color: #d36823;
+    }
+
+}
+
+.header-subtitle {
+    margin-top: 16px;
+    font-size: 16px;
+}
+
+.header-nav {
+    font-size: 24px;
+}
+
+    .header-nav ul {
+        text-align: right;
+    }
+
+        .header-nav ul li {
+            margin-bottom: 24px;
+        }
+
+            .header-nav ul li a {
+                text-decoration: none;
+                color: #525252;
+            }
+
+            .header-nav ul li a::before {
+                display: none;
+                content: '';
+                width: 22px;
+                height: 22px;
+                margin-right: 10px;
+                background: #d36823;
+                transition: 0.5s all ease-out;
+            }
+
+            .header-nav ul li a:hover::before,
+            .header-nav ul li.current a::before {
+                display: inline-block;
+            }
+
+.hamburger-button {
+    position: relative;
+    display: none;
+    height: 7vw;
+    width: 7vw;
+}  
+
+.hamburger-button.active,
+.hamburger-button:hover {
+    opacity: 0.8;
+}
+
+
+    .hamburger-button.active .hamburger-line:nth-child(1) {
+        transform: rotate(-45deg);
+        top: calc(50% - 0.4vw);
+    }
+
+    .hamburger-button.active .hamburger-line:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger-button.active .hamburger-line:nth-child(3) {
+        transform: rotate(45deg);
+        bottom: calc(50% - 0.4vw);
+    }
+
+
+.hamburger-line {
+    position: absolute;
+    width: 100%;
+    height: 0.8vw;
+    background-color: #525252;
+    transition: 0.3s all ease-in-out;
+}
+
+    .hamburger-line:nth-child(1) {
+        top: 0;
+    }
+
+    .hamburger-line:nth-child(2) {
+        top: calc(50% - 0.4vw);
+    }
+
+    .hamburger-line:nth-child(3) {
+        bottom: 0;
+    }
+
+
+
+
+ @media screen and (max-width: $SW) {
+
+    .header {
+        height: auto;
+    }
+
+     .header-area {
+         position: relative;
+         padding: 0;
+         width: 100%;
+         margin: auto;
+    }
+
+    .header-sp-area {
+        display: flex;
+        width: 90%;
+        margin: 6.15vw auto;
+        justify-content: space-between;
+    }
+
+    .header-title {
+        font-size: 5vw; 
+    }
+
+    .header-subtitle {
+        font-size: 3vw;
+        margin-top: 10px;
+    }
+
+    .hamburger-button {
+        display: block;
+    }
+
+    .hamburger-button:hover {
+        opacity: 1;
+    }
+
+    .header-nav {
+        display: none;
+        width: 100%;
+     }
+
+        .header-nav ul {
+            text-align: center;
+            margin-top: 20vw;
+        }
+
+            .header-nav ul li {
+                 margin-bottom: 10vw;
+            }
+
+            .header-nav ul li a:hover::before {
+                display: none;
+            }
+
+            .header-nav ul li.current a::before {
+                display: none;
+            }
+
+     .header-nav.open {
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 100vh;
+        top: 21vw;
+        right: 0;
+        font-size: 4.8vw;
+        background-color: #d36823;
+    }
+
+
+
+
+ }

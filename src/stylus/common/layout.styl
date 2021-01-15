@@ -1,0 +1,162 @@
+
+body {
+    font-family: 'Noto Sans JP', sans-serif;
+    color: #525252;
+    background-color: #ffffff;
+    letter-spacing: 2px;
+
+}
+
+/*--------------------------------------
+	header
+/*-------------------------------------*/
+
+.header {
+    position: fixed;
+    width: 100%;
+    background-color: #ffffff;
+    top: 0;
+    left: 0;
+    .header-area {
+        display: flex;
+        width: 90%;
+        margin: 0 auto;
+        padding: 50px 0px 26px;
+        justify-content: space-between;
+        .header-title {
+            font-size: 30px;
+            a {
+                text-decoration: none;
+                color: #525252;
+            }
+            &:hover {
+                a {
+                    color: $color_accent
+                }
+            }
+        }
+        .header-nav {
+            color: #525252;
+            font-size: 24px;
+            ul {
+                text-align: right;
+                li {
+                    margin-bottom: 24px;
+                    a {
+                        text-decoration: none;
+                        color: #525252;
+                        &::before {
+                            display: inline-block;
+                            content: '';
+                            width: 22px;
+                            height: 22px;
+                            margin-right: 10px;
+                            opacity: 0;
+                            background: $color_accent;
+                            transition: 0.5s all ease-out;
+                        }
+                        &:hover {
+                            &::before {
+                                opacity: 1;
+                            }
+                        }
+                    }
+                }
+                .current {
+                    a {
+                        &::before {
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+        }
+    }  
+} 
+
+
+@media screen and (max-width: $SW) {
+    .header {
+        .header-area {
+            position: relative;
+            padding: 0;
+            width: 100%;
+            margin: auto;
+            .header-sp-area {
+                width: 90%;
+                margin: 5.55vw;
+                .header-title {
+                    font-size: 5vw; 
+                    position: relative;
+                }
+                &.active {
+                    display: none;
+                }
+            }
+            .hamburger-button {
+                position: relative;
+                display: block;
+                margin: 6.55vw;
+                height: 3vw;
+                width: 9vw;
+                z-index: 1000;
+                .hamburger-line {
+                    position: absolute;
+                    width: 100%;
+                    height: 2px;
+                    background-color: #525252;
+                    transition: 0.3s all ease-in-out;
+                    &:first-child {
+                        top: 0;
+                    }
+                    &:last-child {
+                        bottom: 0;
+                    }
+                }
+                &.active {
+                    position: absolute;
+                    opacity: 0.8;
+                    right: 0;
+                    .hamburger-line {
+                        &:first-child {
+                            transform: rotate(-45deg);
+                            top: calc(50% - 1px);
+                        }
+                        &:last-child {
+                            transform: rotate(45deg);
+                            bottom: calc(50% - 1px);
+                        }
+                    }	
+
+                }
+            }
+            .header-nav {
+                position: absolute;
+                width: 100%;
+                height: 100vh;
+                right: -100%;
+                font-size: 6vw;
+                background-color: rgba(211,104,35,0.95);
+                transition: 0.5s all;
+                z-index: 100;
+                ul {
+                    margin-top: 35vw;
+                    text-align: center;
+                    li {
+                        margin-bottom: 15vw;
+                        a {
+                            &::before {
+                                display: none;
+                            }
+                        }
+                    }
+                }
+                &.open {
+                    width: 100%; 
+                    right: 0;
+                }
+            }
+        }
+    }
+}
+
